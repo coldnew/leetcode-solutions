@@ -3,3 +3,4 @@ ADD_SUBDIRECTORY(leetcode_utils)
 
 # other problems
 ADD_SUBDIRECTORY(0002)
+ADD_SUBDIRECTORY(0445)
