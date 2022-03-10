@@ -46,7 +46,7 @@ std::string ToString(ListNode* l) {
 ListNode* ToListNode(const std::string& l) {
   ListNode head(0);
   ListNode* node = &head;
-  for (auto c : l) {
+  for (auto& c : l) {
     if ((c == '[') || (c == ',') || (c == ' '))
       continue;
     else if (c == ']')
