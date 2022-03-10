@@ -1,0 +1,15 @@
+name: clang-format
+
+on: [push, pull_request]
+
+jobs:
+  formatting-check:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: clang-format Check
+      uses: jidicula/clang-format-action@v4.6.2
+      with:
+        clang-format-version: '13'
