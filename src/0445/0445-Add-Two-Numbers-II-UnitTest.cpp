@@ -2,19 +2,19 @@
 
 #include "0445-Add-Two-Numbers-II.cpp"
 
-TEST(AddTwoNumbersTestII, Reverse) {
-  auto Reverse = [](const std::string& val1) -> std::string {
-    return ToString(reverse(ToListNode(val1)));
+TEST(AddTwoNumbersIITest, ReverseList) {
+  auto ReverseList = [](const std::string& val1) -> std::string {
+    return ToString(reverseList(ToListNode(val1)));
   };
 
-  EXPECT_EQ("[]", Reverse("[]"));
-  EXPECT_EQ("[1]", Reverse("[1]"));
-  EXPECT_EQ("[5,6]", Reverse("[6,5]"));
-  EXPECT_EQ("[7,0,8]", Reverse("[8,0,7]"));
-  EXPECT_EQ("[1,2,3,4,5,6,7,8,9]", Reverse("[9,8,7,6,5,4,3,2,1]"));
+  EXPECT_EQ("[]", ReverseList("[]"));
+  EXPECT_EQ("[1]", ReverseList("[1]"));
+  EXPECT_EQ("[5,6]", ReverseList("[6,5]"));
+  EXPECT_EQ("[7,0,8]", ReverseList("[8,0,7]"));
+  EXPECT_EQ("[1,2,3,4,5,6,7,8,9]", ReverseList("[9,8,7,6,5,4,3,2,1]"));
 }
 
-TEST(AddTwoNumbersTestII, Solution1) {
+TEST(AddTwoNumbersIITest, Solution1) {
   auto addTwoNumbers = [](const std::string& val1,
                           const std::string& val2) -> std::string {
     Solution1 s;

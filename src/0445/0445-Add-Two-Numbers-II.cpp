@@ -11,7 +11,7 @@
  * };
  */
 
-ListNode* reverse(ListNode* head) {
+ListNode* reverseList(ListNode* head) {
   ListNode* node = nullptr;
   while (head) {
     ListNode* next = head->next;
@@ -25,8 +25,8 @@ ListNode* reverse(ListNode* head) {
 class Solution1 {
  public:
   ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-    auto* l1r = reverse(l1);
-    auto* l2r = reverse(l2);
+    auto* l1r = reverseList(l1);
+    auto* l2r = reverseList(l2);
 
     int32_t sum = 0;
     ListNode tmp(0);
@@ -48,6 +48,6 @@ class Solution1 {
       }
       sum /= 10;
     }
-    return reverse(tmp.next);
+    return reverseList(tmp.next);
   }
 };
