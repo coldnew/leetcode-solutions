@@ -31,7 +31,7 @@ bool ListEquals(ListNode* l, ListNode* r) {
   }
 }
 
-std::string ListString(ListNode* l) {
+std::string ToString(ListNode* l) {
   std::string result = "[";
 
   while (l) {

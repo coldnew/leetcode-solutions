@@ -6,7 +6,7 @@ TEST(AddTwoNumbersTest, Solution1) {
   auto addTwoNumbers = [](const std::string& val1,
                           const std::string& val2) -> std::string {
     Solution1 s;
-    return ListString(s.addTwoNumbers(ToListNode(val1), ToListNode(val2)));
+    return ToString(s.addTwoNumbers(ToListNode(val1), ToListNode(val2)));
   };
 
   EXPECT_EQ("[]", addTwoNumbers("[]", "[]"));

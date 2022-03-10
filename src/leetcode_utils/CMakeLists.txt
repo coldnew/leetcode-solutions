@@ -16,7 +16,7 @@ TARGET_INCLUDE_DIRECTORIES(leetcode_utils
 ##-------------------------------------------------------------------------------
 ## UnitTest
 ##-------------------------------------------------------------------------------
-#ADD_EXECUTABLE(leetcode_utils_unittest
-#  leetcode_lists_unittest.cpp)
-#TARGET_LINK_LIBRARIES(leetcode_utils_unittest PUBLIC ${GTEST_LIBRARIES})
-#ADD_TEST(NAME leetcode_utils_unittest COMMAND leetcode_utils_unittest)
+ADD_EXECUTABLE(leetcode_utils_unittest
+  leetcode_lists_unittest.cpp)
+TARGET_LINK_LIBRARIES(leetcode_utils_unittest PUBLIC ${GTEST_LIBRARIES})
+ADD_TEST(NAME leetcode_utils_unittest COMMAND leetcode_utils_unittest)

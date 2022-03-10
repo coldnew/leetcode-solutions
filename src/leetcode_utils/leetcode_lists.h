@@ -21,10 +21,10 @@ ListNode* ListCreate(std::initializer_list<int>&& lst);
 void ListPrint(ListNode* head);
 bool ListEquals(ListNode* l, ListNode* r);
 
-std::string ListString(ListNode* l);
+std::string ToString(ListNode* l);
 
 ListNode* ToListNode(const std::string& l);
 
-#define EXPECT_LIST_EQ(val1, val2) EXPECT_EQ(val1, ListString(val2))
+#define EXPECT_LIST_EQ(val1, val2) EXPECT_EQ(val1, ToString(val2))
 
 #endif /* _LEETCODE_LISTS_H_ */
