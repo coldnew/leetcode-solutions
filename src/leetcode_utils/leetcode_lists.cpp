@@ -22,7 +22,7 @@ void ListPrint(ListNode* head) {
   std::cout << std::endl;
 }
 
-bool ListEquals(ListNode* l, ListNode* r) {
+bool IsListEqual(ListNode* l, ListNode* r) {
   for (auto *curl = l, *curr = r;; curl = curl->next, curr = curr->next) {
     if (curl == nullptr || curr == nullptr)
       return curl == nullptr && curr == nullptr;
@@ -33,14 +33,12 @@ bool ListEquals(ListNode* l, ListNode* r) {
 
 std::string ToString(ListNode* l) {
   std::string result = "[";
-
   while (l) {
     result += std::to_string(l->val);
     l = l->next;
     if (l)
       result += ",";
   }
-
   result += "]";
   return result;
 }

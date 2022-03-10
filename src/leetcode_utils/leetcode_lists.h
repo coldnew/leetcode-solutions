@@ -19,7 +19,7 @@ ListNode* ListCreate(std::initializer_list<int>&& lst);
 #define LIST(...) ListCreate({__VA_ARGS__})
 
 void ListPrint(ListNode* head);
-bool ListEquals(ListNode* l, ListNode* r);
+bool IsListEqual(ListNode* l, ListNode* r);
 
 std::string ToString(ListNode* l);
 
