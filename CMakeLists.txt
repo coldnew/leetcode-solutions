@@ -11,8 +11,8 @@ SET(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 #-------------------------------------------------------------------------------
 # Project Setups
 #-------------------------------------------------------------------------------
-PROJECT (uva-online-judge-solutions)
-SET(PROJECT_DESCRIPTION "My UVa online judge solutions http://onlinejudge.org/")
+PROJECT (leetcode-solutions)
+SET(PROJECT_DESCRIPTION "My leetcode solutions http://leetcode.com/")
 ENABLE_LANGUAGE(C CXX)
 ENABLE_TESTING()
 
