@@ -1,3 +1,4 @@
+#include <stack>
 #include "leetcode_utils.h"
 
 /**
@@ -21,5 +22,28 @@ class Solution1 {
       head = next;
     }
     return node;
+  }
+};
+
+class Solution2 {
+ public:
+  ListNode* reverseList(ListNode* head) {
+    // head_ptr store original head pointer
+    ListNode* head_ptr = head;
+
+    std::stack<int> sp;
+    while (head) {
+      sp.push(head->val);
+      head = head->next;
+    }
+
+    head = head_ptr;
+    while (!sp.empty()) {
+      head->val = sp.top();
+      sp.pop();
+      head = head->next;
+    }
+
+    return head_ptr;
   }
 };
