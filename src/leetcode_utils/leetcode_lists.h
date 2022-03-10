@@ -23,6 +23,8 @@ bool ListEquals(ListNode* l, ListNode* r);
 
 std::string ListString(ListNode* l);
 
+ListNode* ToListNode(const std::string& l);
+
 #define EXPECT_LIST_EQ(val1, val2) EXPECT_EQ(val1, ListString(val2))
 
 #endif /* _LEETCODE_LISTS_H_ */

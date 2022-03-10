@@ -1,4 +1,5 @@
 #include "leetcode_lists.h"
+#include <string>
 
 // ref:
 // https://github.com/cdsama/LeetCode/blob/afc59f4c4a2b3ca393d7eea22d996a3b5eb2de5d/src/LeetCode.hpp
@@ -42,4 +43,20 @@ std::string ListString(ListNode* l) {
 
   result += "]";
   return result;
+}
+
+ListNode* ToListNode(const std::string& l) {
+  ListNode head(0);
+  ListNode* node = &head;
+  for (auto c : l) {
+    if ((c == '[') || (c == ',') || (c == ' '))
+      continue;
+    else if (c == ']')
+      break;
+
+    node->next = new ListNode(atoi(&c));
+    node = node->next;
+  }
+
+  return head.next;
 }
