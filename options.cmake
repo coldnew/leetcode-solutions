@@ -22,11 +22,21 @@ IF(GMOCK_FOUND)
   SET_PROPERTY(GLOBAL APPEND PROPERTY PACKAGES_FOUND gmock)
 ENDIF()
 
+# benchmark
+PKG_CHECK_MODULES(BENCHMARK REQUIRED benchmark)
+SET_PACKAGE_PROPERTIES(benchmark PROPERTIES
+  DESCRIPTION "A microbenchmark support library"
+  URL "https://github.com/google/benchmark"
+  TYPE REQUIRED)
+IF(BENCHMARK_FOUND)
+  SET_PROPERTY(GLOBAL APPEND PROPERTY PACKAGES_FOUND benchmark)
+ENDIF()
+
 #-------------------------------------------------------------------------------
 # Basic deps we need in this project
 #-------------------------------------------------------------------------------
 
-# google test
 INCLUDE_DIRECTORIES (${GTEST_INCLUDE_DIRS})
 INCLUDE_DIRECTORIES (${GMOCK_INCLUDE_DIRS})
+INCLUDE_DIRECTORIES (${BENCHMARK_INCLUDE_DIRS})
 

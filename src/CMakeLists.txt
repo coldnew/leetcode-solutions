@@ -6,8 +6,18 @@
 # LEETCODE_UNITTEST (NAME source.cpp)
 MACRO(LEETCODE_UNITTEST _appname)
 ADD_EXECUTABLE(${_appname} ${_appname}.cpp)
-TARGET_LINK_LIBRARIES(${_appname} PUBLIC leetcode_utils ${GTEST_LIBRARIES} )
+SET_TARGET_PROPERTIES(${_appname}
+  PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+TARGET_LINK_LIBRARIES(${_appname} PUBLIC leetcode_utils ${GTEST_LIBRARIES})
 ADD_TEST(NAME ${_appname} COMMAND ${_appname})
+ENDMACRO()
+
+# LEETCODE_BENCHMARK (NAME source.cpp)
+MACRO(LEETCODE_BENCHMARK _appname)
+ADD_EXECUTABLE(${_appname} ${_appname}.cpp)
+SET_TARGET_PROPERTIES(${_appname}
+  PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+TARGET_LINK_LIBRARIES(${_appname} PUBLIC leetcode_utils ${BENCHMARK_LIBRARIES})
 ENDMACRO()
 
 #-------------------------------------------------------------------------------
