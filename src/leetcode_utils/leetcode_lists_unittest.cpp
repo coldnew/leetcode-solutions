@@ -19,3 +19,15 @@ TEST(leetcode_lists, IsListEqual) {
   EXPECT_FALSE(IsEqual("[1, 2]", "[1, 2, 3]"));
   EXPECT_FALSE(IsEqual("[4, 5]", "[1, 2, 3]"));
 }
+
+TEST(leetcode_lists, ListNodePrint) {
+  auto ListNodePrintToStdOut = [](const std::string& node) -> std::string {
+    testing::internal::CaptureStdout();
+    ListNodePrint(ToListNode(node));
+    return testing::internal::GetCapturedStdout();
+  };
+
+  EXPECT_EQ("1 -> 2 -> nullptr\n", ListNodePrintToStdOut("[1, 2]"));
+  EXPECT_EQ("1 -> 2 -> 3 -> 4 -> nullptr\n",
+            ListNodePrintToStdOut("[1,2,3,4]"));
+}

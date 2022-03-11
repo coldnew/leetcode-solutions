@@ -7,16 +7,15 @@
 ListNode* ListCreate(std::initializer_list<int>&& lst) {
   auto iter = lst.begin();
   ListNode* head = lst.size() ? new ListNode(*iter++) : nullptr;
-  for (ListNode* cur = head; iter != lst.end(); cur = cur->next) {
+  for (ListNode* cur = head; iter != lst.end(); cur = cur->next)
     cur->next = new ListNode(*iter++);
-  }
   return head;
 }
 
-void ListPrint(ListNode* head) {
+void ListNodePrint(ListNode* head) {
   auto* node = head;
   while (node) {
-    std::cout << node->val << " -> ";
+    std::cout << node->val << (node->next ? " -> " : " -> nullptr");
     node = node->next;
   }
   std::cout << std::endl;
