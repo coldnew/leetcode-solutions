@@ -21,7 +21,7 @@ void ListNodePrint(ListNode* head) {
   std::cout << std::endl;
 }
 
-bool IsListEqual(ListNode* l, ListNode* r) {
+bool IsListNodeEqual(ListNode* l, ListNode* r) {
   for (auto *curl = l, *curr = r;; curl = curl->next, curr = curr->next) {
     if (curl == nullptr || curr == nullptr)
       return curl == nullptr && curr == nullptr;
