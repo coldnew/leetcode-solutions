@@ -14,10 +14,12 @@ ENDMACRO()
 
 # LEETCODE_BENCHMARK (NAME source.cpp)
 MACRO(LEETCODE_BENCHMARK _appname)
-ADD_EXECUTABLE(${_appname} ${_appname}.cpp)
-SET_TARGET_PROPERTIES(${_appname}
-  PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
-TARGET_LINK_LIBRARIES(${_appname} PUBLIC leetcode_utils ${BENCHMARK_LIBRARIES})
+  IF(BENCHMARK_FOUND)
+    ADD_EXECUTABLE(${_appname} ${_appname}.cpp)
+    SET_TARGET_PROPERTIES(${_appname}
+      PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+    TARGET_LINK_LIBRARIES(${_appname} PUBLIC leetcode_utils ${BENCHMARK_LIBRARIES})
+  ENDIF()
 ENDMACRO()
 
 #-------------------------------------------------------------------------------
