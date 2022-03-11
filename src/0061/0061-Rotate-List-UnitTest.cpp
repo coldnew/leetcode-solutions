@@ -2,7 +2,7 @@
 
 #include "0061-Rotate-List.cpp"
 
-TEST(RotateListTest, GetListNodeLength) {
+TEST(RotateListTest, getListNodeLength) {
   auto GetListNodeLength = [](const std::string& l) -> int {
     return getListNodeLength(ToListNode(l));
   };
