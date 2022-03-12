@@ -15,6 +15,7 @@ SET(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 ADD_LIBRARY (leetcode_utils STATIC
   leetcode_listnode.cpp
+  leetcode_node.cpp
   leetcode_string.cpp
   )
 
@@ -30,6 +31,7 @@ TARGET_INCLUDE_DIRECTORIES(leetcode_utils
 ##-------------------------------------------------------------------------------
 ADD_EXECUTABLE(leetcode_utils_unittest
   leetcode_listnode_unittest.cpp
+  leetcode_node_unittest.cpp
   leetcode_string_unittest.cpp
   )
 TARGET_LINK_LIBRARIES(leetcode_utils_unittest PUBLIC ${GTEST_LIBRARIES})
