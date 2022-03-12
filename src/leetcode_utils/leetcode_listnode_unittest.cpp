@@ -2,16 +2,16 @@
 
 #include "leetcode_listnode.cpp"
 
-TEST(leetcode_lists, ToString) {
+TEST(LeetListNodeTest, ToString) {
   EXPECT_EQ("[1,2,3]", ToString(LISTNODE(1, 2, 3)));
 }
 
-TEST(leetcode_lists, ToListNode) {
+TEST(LeetListNodeTest, ToListNode) {
   EXPECT_EQ("[1,2,3]", ToString(ToListNode("[1, 2, 3]")));
   EXPECT_EQ("[1,2,3]", ToString(ToListNode("[1,2,3]")));
 }
 
-TEST(leetcode_lists, IsListNodeEqual) {
+TEST(LeetListNodeTest, IsListNodeEqual) {
   auto IsEqual = [](const std::string& l1, const std::string& l2) -> bool {
     return IsListNodeEqual(ToListNode(l1), ToListNode(l2));
   };
@@ -20,7 +20,7 @@ TEST(leetcode_lists, IsListNodeEqual) {
   EXPECT_FALSE(IsEqual("[4, 5]", "[1, 2, 3]"));
 }
 
-TEST(leetcode_lists, ListNodePrint) {
+TEST(LeetListNodeTest, ListNodePrint) {
   auto ListNodePrintToStdOut = [](const std::string& node) -> std::string {
     testing::internal::CaptureStdout();
     ListNodePrint(ToListNode(node));
