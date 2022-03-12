@@ -1,7 +1,6 @@
-#ifndef _LEETCODE_LISTS_H_
-#define _LEETCODE_LISTS_H_
+#ifndef _LEETCODE_LISTNODE_H_
+#define _LEETCODE_LISTNODE_H_
 
-#include <gtest/gtest.h>
 #include <initializer_list>
 #include <iostream>
 
@@ -14,9 +13,9 @@ struct ListNode {
 };
 
 // My extra utils
-ListNode* ListCreate(std::initializer_list<int>&& lst);
+ListNode* ListNodeCreate(std::initializer_list<int>&& lst);
 
-#define LIST(...) ListCreate({__VA_ARGS__})
+#define LISTNODE(...) ListNodeCreate({__VA_ARGS__})
 
 void ListNodePrint(ListNode* head);
 bool IsListNodeEqual(ListNode* l, ListNode* r);
@@ -25,6 +24,4 @@ std::string ToString(ListNode* l);
 
 ListNode* ToListNode(const std::string& l);
 
-#define EXPECT_LIST_EQ(val1, val2) EXPECT_EQ(val1, ToString(val2))
-
-#endif /* _LEETCODE_LISTS_H_ */
+#endif /* _LEETCODE_LISTNODE_H_ */

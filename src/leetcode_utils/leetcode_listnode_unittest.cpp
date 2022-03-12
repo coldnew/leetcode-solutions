@@ -1,9 +1,9 @@
 #include <gtest/gtest.h>
 
-#include "leetcode_lists.cpp"
+#include "leetcode_listnode.cpp"
 
 TEST(leetcode_lists, ToString) {
-  EXPECT_EQ("[1,2,3]", ToString(LIST(1, 2, 3)));
+  EXPECT_EQ("[1,2,3]", ToString(LISTNODE(1, 2, 3)));
 }
 
 TEST(leetcode_lists, ToListNode) {

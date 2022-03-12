@@ -1,10 +1,10 @@
-#include "leetcode_lists.h"
+#include "leetcode_listnode.h"
 #include <string>
 
 // ref:
 // https://github.com/cdsama/LeetCode/blob/afc59f4c4a2b3ca393d7eea22d996a3b5eb2de5d/src/LeetCode.hpp
 
-ListNode* ListCreate(std::initializer_list<int>&& lst) {
+ListNode* ListNodeCreate(std::initializer_list<int>&& lst) {
   auto iter = lst.begin();
   ListNode* head = lst.size() ? new ListNode(*iter++) : nullptr;
   for (ListNode* cur = head; iter != lst.end(); cur = cur->next)
