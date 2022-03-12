@@ -14,6 +14,9 @@ class NodeT : public Node {
 };
 
 Node* ToNode(const std::string& str) {
+  if ((str == "[]") || (str == ""))
+    return nullptr;
+
   NodeT* head = nullptr;
   NodeT* head_ptr = nullptr;
 

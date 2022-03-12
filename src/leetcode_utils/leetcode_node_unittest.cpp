@@ -4,6 +4,11 @@
 
 TEST(LeetCodeNodeTest, ToNode) {
   {
+    EXPECT_EQ(nullptr, ToNode(""));
+    EXPECT_EQ(nullptr, ToNode("[]"));
+  }
+
+  {
     Node* node = ToNode("[[1,null]]");
     EXPECT_EQ(1, node->val);
     EXPECT_EQ(NULL, node->random);
