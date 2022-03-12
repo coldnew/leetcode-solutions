@@ -95,3 +95,14 @@ std::string ToString(Node* node) {
   result += "]";
   return result;
 }
+
+bool IsNodeEqual(Node* node1, Node* node2) {
+  for (auto *p1 = node1, *p2 = node2; p1;) {
+    if (p1 == p2)
+      return true;
+    p1 = p1->next;
+    p2 = p2->next;
+  }
+
+  return false;
+}

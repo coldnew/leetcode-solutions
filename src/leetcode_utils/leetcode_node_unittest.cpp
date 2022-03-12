@@ -60,3 +60,17 @@ TEST(LeetCodeNodeTest, ToString) {
   EXPECT_EQ("[[7,null],[13,0],[11,4],[10,2],[1,0]]",
             ToString(ToNode("[[7,null],[13,0],[11,4],[10,2],[1,0]]")));
 }
+
+TEST(LeetCodeNodeTest, IsNodeEqual) {
+  {
+    Node* node1 = ToNode("[[1,0],[2,1]]");
+    Node* node2 = ToNode("[[1,0],[2,1]]");
+
+    EXPECT_FALSE(IsNodeEqual(node1, node2));
+  }
+
+  {
+    Node* node = ToNode("[[1,null],[3,0]]");
+    EXPECT_TRUE(IsNodeEqual(node, node));
+  }
+}
