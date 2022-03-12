@@ -17,7 +17,7 @@ ENABLE_LANGUAGE(C CXX)
 ENABLE_TESTING()
 
 #-------------------------------------------------------------------------------
-# Compoler Options
+# Compiler Options
 #-------------------------------------------------------------------------------
 # we use C99 in this project
 SET(CMAKE_C_STANDARD   99)
@@ -26,6 +26,9 @@ SET(CMAKE_C_STANDARD_REQUIRED ON)
 # we use C++11 in this project
 SET(CMAKE_CXX_STANDARD 11)
 SET(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# make build with gdb support
+SET(CMAKE_BUILD_TYPE RelWithDebInfo)
 
 #-------------------------------------------------------------------------------
 # CMake Modules
