@@ -4,8 +4,9 @@
 
 # Usage:
 # LEETCODE_UNITTEST (NAME source.cpp)
-MACRO(LEETCODE_UNITTEST _appname)
-ADD_EXECUTABLE(${_appname} ${_appname}.cpp)
+MACRO(LEETCODE_UNITTEST _srcname)
+SET(_appname ${_srcname}-UnitTest)
+ADD_EXECUTABLE(${_appname} ${_srcname}-UnitTest.cpp)
 TARGET_LINK_LIBRARIES(${_appname} PUBLIC leetcode_utils ${GTEST_LIBRARIES})
 SET_TARGET_PROPERTIES(${_appname} PROPERTIES
     CXX_STANDARD 17
@@ -15,9 +16,10 @@ ADD_TEST(NAME ${_appname} COMMAND ${_appname})
 ENDMACRO()
 
 # LEETCODE_BENCHMARK (NAME source.cpp)
-MACRO(LEETCODE_BENCHMARK _appname)
+MACRO(LEETCODE_BENCHMARK _srcname)
   IF(BENCHMARK_FOUND)
-    ADD_EXECUTABLE(${_appname} ${_appname}.cpp)
+    SET(_appname ${_srcname}-BenchMark)
+    ADD_EXECUTABLE(${_appname} ${_srcname}-BenchMark.cpp)
     TARGET_LINK_LIBRARIES(${_appname} PUBLIC leetcode_utils ${BENCHMARK_LIBRARIES})
   ENDIF()
 ENDMACRO()

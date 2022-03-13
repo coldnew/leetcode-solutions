@@ -1,1 +1,1 @@
-LEETCODE_UNITTEST(0002-Add-Two-Numbers-UnitTest)
+LEETCODE_UNITTEST(0002-Add-Two-Numbers)

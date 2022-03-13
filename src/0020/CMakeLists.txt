@@ -1,1 +1,1 @@
-LEETCODE_UNITTEST(0020-Valid-Parentheses-UnitTest)
+LEETCODE_UNITTEST(0020-Valid-Parentheses)
