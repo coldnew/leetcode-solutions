@@ -1,3 +1,4 @@
+#include <stack>
 #include <string>
 #include <vector>
 #include "leetcode_utils.h"
@@ -42,6 +43,47 @@ class Solution1 {
     std::string result;
     for (auto& s : dirs)
       result.append("/" + s);
+
+    if (result.empty())
+      return "/";
+
+    return result;
+  }
+};
+
+class Solution2 {
+ public:
+  string simplifyPath(string path) {
+    // add / to path so we won't have pending data like Solution1
+    path.push_back('/');
+
+    std::string current_dir;
+    std::stack<std::string> subdirs;
+    for (auto& c : path) {
+      if (c != '/') {
+        current_dir.push_back(c);
+        continue;
+      }
+
+      if (current_dir.empty())
+        continue;
+      if (current_dir == ".")
+        current_dir.clear();
+      else if (current_dir == "..") {
+        if (!subdirs.empty())
+          subdirs.pop();
+      } else
+        subdirs.push(current_dir);
+
+      current_dir.clear();
+    }
+
+    // stack is in reverse order, prepend the data
+    std::string result;
+    while (!subdirs.empty()) {
+      result.insert(0, '/' + subdirs.top());
+      subdirs.pop();
+    }
 
     if (result.empty())
       return "/";
