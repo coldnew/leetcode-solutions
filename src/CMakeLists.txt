@@ -8,6 +8,8 @@ MACRO(LEETCODE_UNITTEST _srcname)
 SET(_appname ${_srcname}-UnitTest)
 ADD_EXECUTABLE(${_appname} ${_srcname}-UnitTest.cpp)
 TARGET_LINK_LIBRARIES(${_appname} PUBLIC leetcode_utils ${GTEST_LIBRARIES})
+TARGET_COMPILE_OPTIONS(${_appname} PRIVATE "-fsanitize=address")
+TARGET_LINK_OPTIONS(${_appname} PRIVATE  "-fsanitize=address")
 SET_TARGET_PROPERTIES(${_appname} PROPERTIES
     CXX_STANDARD 17
     CXX_STANDARD_REQUIRED ON
