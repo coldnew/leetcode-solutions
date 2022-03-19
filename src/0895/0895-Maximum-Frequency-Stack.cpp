@@ -132,31 +132,22 @@ class FreqStack2 {
         max = timestamp.size();
     }
 
-    std::vector<int> occurs;
-    for (auto& [c, timestamp] : timestamp_) {
-      if (timestamp.size() == max)
-        occurs.push_back(c);
-    }
-
-    if (occurs.size() == 1) {
-      int val = occurs.front();
-      timestamp_[val].pop();
-      if (timestamp_[val].empty())
-        timestamp_.erase(val);
-      return val;
-    }
-
-    // find most timestamp char
+    int find = 0;
+    int find_char = 0;
     int max_timestamp = 0;
     int max_timestamp_char = 0;
-    for (auto& c : occurs) {
-      if (timestamp_[c].top() > max_timestamp) {
-        max_timestamp_char = c;
-        max_timestamp = timestamp_[c].top();
+    for (auto& [c, timestamp] : timestamp_) {
+      if (timestamp.size() == max) {
+        find++;
+        find_char = c;
+        if (timestamp_[c].top() > max_timestamp) {
+          max_timestamp_char = c;
+          max_timestamp = timestamp_[c].top();
+        }
       }
     }
 
-    int val = max_timestamp_char;
+    int val = (find == 1) ? find_char : max_timestamp_char;
     timestamp_[val].pop();
     if (timestamp_[val].empty())
       timestamp_.erase(val);
