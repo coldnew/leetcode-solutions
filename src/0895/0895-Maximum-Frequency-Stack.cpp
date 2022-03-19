@@ -122,22 +122,18 @@ class FreqStack2 {
  public:
   FreqStack2() {}
 
-  void push(int val) { timestamp_[val].push(tm_++); }
+  void push(int val) {
+    timestamp_[val].push(tm_++);
+    freq_max_ = std::max(freq_max_, static_cast<int>(timestamp_[val].size()));
+  }
 
   int pop() {
-    // find most freq val, if freq the same, add to occurs
-    int max = 0;
-    for (auto& [c, timestamp] : timestamp_) {
-      if (timestamp.size() > max)
-        max = timestamp.size();
-    }
-
     int find = 0;
     int find_char = 0;
     int max_timestamp = 0;
     int max_timestamp_char = 0;
     for (auto& [c, timestamp] : timestamp_) {
-      if (timestamp.size() == max) {
+      if (timestamp.size() == freq_max_) {
         find++;
         find_char = c;
         if (timestamp_[c].top() > max_timestamp) {
@@ -149,13 +145,16 @@ class FreqStack2 {
 
     int val = (find == 1) ? find_char : max_timestamp_char;
     timestamp_[val].pop();
-    if (timestamp_[val].empty())
+    if (timestamp_[val].empty()) {
       timestamp_.erase(val);
+    }
+    if (find == 1)
+      freq_max_--;
     return val;
   }
 
   //       char, timestamp
   std::map<int, std::stack<int>> timestamp_;
-  // simple timestamp
-  int tm_ = 0;
+  int tm_ = 0;  // simple timestamp
+  int freq_max_ = 0;
 };
