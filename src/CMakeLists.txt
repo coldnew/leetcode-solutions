@@ -10,8 +10,7 @@ ADD_EXECUTABLE(${_appname} ${_srcname}-UnitTest.cpp)
 TARGET_LINK_LIBRARIES(${_appname} PUBLIC leetcode_utils ${GTEST_LIBRARIES})
 SET_TARGET_PROPERTIES(${_appname} PROPERTIES
     CXX_STANDARD 17
-    CXX_STANDARD_REQUIRED ON
-)
+    CXX_STANDARD_REQUIRED ON)
 ADD_TEST(NAME ${_appname} COMMAND ${_appname})
 ENDMACRO()
 
@@ -21,6 +20,9 @@ MACRO(LEETCODE_BENCHMARK _srcname)
     SET(_appname ${_srcname}-BenchMark)
     ADD_EXECUTABLE(${_appname} ${_srcname}-BenchMark.cpp)
     TARGET_LINK_LIBRARIES(${_appname} PUBLIC leetcode_utils ${BENCHMARK_LIBRARIES})
+    SET_TARGET_PROPERTIES(${_appname} PROPERTIES
+      CXX_STANDARD 17
+      CXX_STANDARD_REQUIRED ON)
   ENDIF()
 ENDMACRO()
 
