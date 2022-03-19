@@ -1,6 +1,6 @@
-#include "leetcode_utils.h"
 #include <climits>
 #include <cmath>
+#include "leetcode_utils.h"
 
 class Solution1 {
  public:
@@ -10,7 +10,7 @@ class Solution1 {
       int tail = x % 10;
 
       if (abs(result) > (INT_MAX / 10))
-          return 0;
+        return 0;
       result = result * 10 + tail;
       x /= 10;
     }
