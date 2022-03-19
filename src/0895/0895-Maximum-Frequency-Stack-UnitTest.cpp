@@ -19,3 +19,4 @@
   }
 
 LEETCODE_TEST(FreqStack1);
+LEETCODE_TEST(FreqStack2);
