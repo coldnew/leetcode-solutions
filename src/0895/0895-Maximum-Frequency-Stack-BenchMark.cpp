@@ -20,6 +20,27 @@
       freqStack.pop();                            \
       freqStack.pop();                            \
       freqStack.pop();                            \
+                                                  \
+      freqStack.push(4);                          \
+      freqStack.push(0);                          \
+      freqStack.push(9);                          \
+      freqStack.push(3);                          \
+      freqStack.push(4);                          \
+      freqStack.push(2);                          \
+      freqStack.pop();                            \
+      freqStack.push(6);                          \
+      freqStack.pop();                            \
+      freqStack.push(1);                          \
+      freqStack.pop();                            \
+      freqStack.push(1);                          \
+      freqStack.pop();                            \
+      freqStack.push(4);                          \
+      freqStack.pop();                            \
+      freqStack.pop();                            \
+      freqStack.pop();                            \
+      freqStack.pop();                            \
+      freqStack.pop();                            \
+      freqStack.pop();                            \
     }                                             \
   }                                               \
   BENCHMARK(BM_##FreqStackX);
