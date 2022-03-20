@@ -28,9 +28,7 @@ class Solution1 {
     int swap_top = 0;
     int swap_bottom = 0;
     for (auto i = 0; i < tops.size(); i++) {
-      if ((tops[i] == domino) && bottoms[i] == domino)
-        continue;
-      else if ((tops[i] != domino) && (bottoms[i] != domino))
+      if ((tops[i] != domino) && (bottoms[i] != domino))
         return -1;
       else if (bottoms[i] != domino)
         swap_bottom++;
