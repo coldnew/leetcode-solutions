@@ -20,21 +20,3 @@ class Solution1 {
     return score;
   }
 };
-
-class Solution2 {
- public:
-  int scoreOfParentheses(string s) {
-    std::stack<char> sp;
-    int score = 0;
-    for (auto& c : s) {
-      if (c == '(') {
-        sp.push(c);
-      } else {
-        sp.pop();
-        if (sp.top() == '(')
-          score += 1 << sp.size();
-      }
-    }
-    return score;
-  }
-};
