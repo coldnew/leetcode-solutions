@@ -1,0 +1,2 @@
+LEETCODE_UNITTEST(0763-Partition-Labels)
+LEETCODE_BENCHMARK(0763-Partition-Labels)
