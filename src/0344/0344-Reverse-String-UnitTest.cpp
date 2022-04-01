@@ -14,3 +14,4 @@
 
 LEETCODE_TEST(Solution1)
 LEETCODE_TEST(Solution2)
+LEETCODE_TEST(Solution3)
