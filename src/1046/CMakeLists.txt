@@ -1,0 +1,1 @@
+LEETCODE_UNITTEST(1046-Last-Stone-Weight)
