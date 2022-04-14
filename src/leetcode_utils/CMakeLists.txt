@@ -17,6 +17,7 @@ ADD_LIBRARY (leetcode_utils STATIC
   leetcode_listnode.cpp
   leetcode_node.cpp
   leetcode_string.cpp
+  leetcode_treenode.cpp
   )
 
 #-------------------------------------------------------------------------------
