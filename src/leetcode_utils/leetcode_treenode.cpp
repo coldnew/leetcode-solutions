@@ -14,6 +14,12 @@ bool IsTreeNodeEqual(TreeNode* p, TreeNode* q) {
   return (p->val == q->val) && (IsTreeNodeEqual(p->left, q->left) &&
                                 IsTreeNodeEqual(p->right, q->right));
 }
+bool IsTreeNodeEqual(TreeNode* p, std::shared_ptr<TreeNode> q) {
+  return IsTreeNodeEqual(p, q.get());
+}
+bool IsTreeNodeEqual(std::shared_ptr<TreeNode> p, std::shared_ptr<TreeNode> q) {
+  return IsTreeNodeEqual(p.get(), q.get());
+}
 
 // ref:
 // https://github.com/cdsama/LeetCode/blob/afc59f4c4a2b3ca393d7eea22d996a3b5eb2de5d/src/LeetCode.hpp
@@ -76,6 +82,16 @@ TreeNode* ToTreeNode(const std::string& tree) {
     }
   }
   return vec[0];
+}
+
+void TreeNodeDestroy(TreeNode* root) {
+  if (!root)
+    return;
+  if (root->left)
+    TreeNodeDestroy(root->left);
+  if (root->right)
+    TreeNodeDestroy(root->right);
+  delete root;
 }
 
 // ref:
@@ -325,4 +341,8 @@ void TreeNodePrint(TreeNode* root) {
   for (const auto& row : formatted_rows)
     std::cout << ' ' << row << '\n';
   std::cout << std::endl;
+}
+
+void TreeNodePrint(std::shared_ptr<TreeNode> root) {
+  return TreeNodePrint(root.get());
 }

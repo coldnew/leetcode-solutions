@@ -3,6 +3,7 @@
 
 #include <initializer_list>
 #include <iostream>
+#include <memory>
 #include <optional>
 
 struct TreeNode {
@@ -17,11 +18,18 @@ struct TreeNode {
 
 // My extra utils
 bool IsTreeNodeEqual(TreeNode* p, TreeNode* q);
+bool IsTreeNodeEqual(TreeNode* p, std::shared_ptr<TreeNode> q);
+bool IsTreeNodeEqual(std::shared_ptr<TreeNode> p, std::shared_ptr<TreeNode> q);
 
 void TreeNodePrint(TreeNode* root);
+void TreeNodePrint(std::shared_ptr<TreeNode> root);
 
 TreeNode* ToTreeNode(const std::string& tree);
+void TreeNodeDestroy(TreeNode* root);
 
 #define TREENODE(...) ToTreeNode({__VA_ARGS__})
+
+#define TREENODE_SHAREDPTR(...) \
+  std::shared_ptr<TreeNode>(ToTreeNode({__VA_ARGS__}), TreeNodeDestroy)
 
 #endif /* _LEETCODE_TREENODE_H_ */
