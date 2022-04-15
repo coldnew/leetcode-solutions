@@ -20,6 +20,9 @@ bool IsTreeNodeEqual(TreeNode* p, std::shared_ptr<TreeNode> q) {
 bool IsTreeNodeEqual(std::shared_ptr<TreeNode> p, std::shared_ptr<TreeNode> q) {
   return IsTreeNodeEqual(p.get(), q.get());
 }
+bool IsTreeNodeEqual(std::shared_ptr<TreeNode> p, TreeNode* q) {
+  return IsTreeNodeEqual(p.get(), q);
+}
 
 // ref:
 // https://github.com/cdsama/LeetCode/blob/afc59f4c4a2b3ca393d7eea22d996a3b5eb2de5d/src/LeetCode.hpp

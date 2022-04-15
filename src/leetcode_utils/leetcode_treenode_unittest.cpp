@@ -5,7 +5,7 @@
 TEST(LeetCodeTreeNodeTest, ToTreeNode) {
   {
     auto* tree = new TreeNode(1, nullptr, nullptr);
-    EXPECT_TRUE(IsTreeNodeEqual(tree, TREENODE_SHAREDPTR("[1, null, null]")));
+    EXPECT_TRUE(IsTreeNodeEqual(tree, TREENODE("[1, null, null]")));
     TreeNodeDestroy(tree);
   }
 
@@ -19,8 +19,7 @@ TEST(LeetCodeTreeNodeTest, ToTreeNode) {
     auto* right_6 = new TreeNode(6, nullptr, nullptr);
     auto* right_2 = new TreeNode(2, right_6, nullptr);
     auto* tree = new TreeNode(5, left_1, right_2);
-    EXPECT_TRUE(
-        IsTreeNodeEqual(tree, TREENODE_SHAREDPTR("[5, 1, 2, 3, 4, 6]")));
+    EXPECT_TRUE(IsTreeNodeEqual(tree, TREENODE("[5, 1, 2, 3, 4, 6]")));
     TreeNodeDestroy(tree);
   }
 }
