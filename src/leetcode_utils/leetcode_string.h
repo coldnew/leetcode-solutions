@@ -5,6 +5,8 @@
 #include <vector>
 
 std::string StringRemoveSquareBreaket(const std::string& s);
+void StringTrim(std::string& s);
+
 std::vector<std::string> StringSplit(const std::string& s,
                                      const std::string& separator);
 

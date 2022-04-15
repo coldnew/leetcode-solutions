@@ -35,3 +35,21 @@ null
 )",
       StringSplitWrapper("7,null", ","));
 }
+
+TEST(LeetCodeStringTest, StringTrim) {
+  {
+    std::string str = " 1";
+    StringTrim(str);
+    EXPECT_EQ("1", str);
+  }
+  {
+    std::string str = " 1 ";
+    StringTrim(str);
+    EXPECT_EQ("1", str);
+  }
+  {
+    std::string str = "1 ";
+    StringTrim(str);
+    EXPECT_EQ("1", str);
+  }
+}

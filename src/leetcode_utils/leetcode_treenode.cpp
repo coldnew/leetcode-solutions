@@ -3,19 +3,42 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include "leetcode_string.h"
+
+bool IsTreeNodeEqual(TreeNode* p, TreeNode* q) {
+  if (p == nullptr && q == nullptr)
+    return true;
+  else if (p == nullptr || q == nullptr)
+    return false;
+
+  return (p->val == q->val) && (IsTreeNodeEqual(p->left, q->left) &&
+                                IsTreeNodeEqual(p->right, q->right));
+}
 
 // ref:
 // https://github.com/cdsama/LeetCode/blob/afc59f4c4a2b3ca393d7eea22d996a3b5eb2de5d/src/LeetCode.hpp
-
-TreeNode* TreeNodeCreate(std::initializer_list<std::optional<int>>&& lst) {
-  auto root = lst.begin();
-  if (root == lst.end() || !root->has_value())
+TreeNode* ToTreeNode(const std::string& tree) {
+  if ((tree == "[]") || (tree == ""))
     return nullptr;
 
+  // first split str to find match group
+  // [1, 0, null]
+  // ->
+  //  1
+  //  0
+  //  null
+  auto str = StringRemoveSquareBreaket(tree);
+  auto elms = StringSplit(str, ",");
+
   std::vector<TreeNode*> vec;
-  vec.reserve(lst.size());
-  for (auto itr = root; itr != lst.end(); ++itr)
-    vec.push_back(itr->has_value() ? new TreeNode(itr->value()) : nullptr);
+  for (auto& e : elms) {
+    StringTrim(e);
+    if (e == "null")
+      vec.push_back(nullptr);
+    else
+      vec.push_back(new TreeNode(std::stoi(e)));
+  }
+  vec.reserve(vec.size());
 
   size_t level = 0;
   size_t level_begin = 0;
@@ -53,16 +76,6 @@ TreeNode* TreeNodeCreate(std::initializer_list<std::optional<int>>&& lst) {
     }
   }
   return vec[0];
-}
-
-bool IsTreeNodeEqual(TreeNode* p, TreeNode* q) {
-  if (p == nullptr && q == nullptr)
-    return true;
-  else if (p == nullptr || q == nullptr)
-    return false;
-
-  return (p->val == q->val) && (IsTreeNodeEqual(p->left, q->left) &&
-                                IsTreeNodeEqual(p->right, q->right));
 }
 
 // ref:

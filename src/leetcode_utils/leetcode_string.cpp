@@ -21,3 +21,23 @@ std::vector<std::string> StringSplit(const std::string& s,
   elms.push_back(str);
   return elms;
 }
+
+void StringTrim(std::string& str) {
+  // trim from start (in place)
+  auto ltrim = [](std::string& s) {
+    s.erase(s.begin(), std::find_if(s.begin(), s.end(), [](unsigned char ch) {
+              return !std::isspace(ch);
+            }));
+  };
+
+  // trim from end (in place)
+  auto rtrim = [](std::string& s) {
+    s.erase(std::find_if(s.rbegin(), s.rend(),
+                         [](unsigned char ch) { return !std::isspace(ch); })
+                .base(),
+            s.end());
+  };
+
+  ltrim(str);
+  rtrim(str);
+}

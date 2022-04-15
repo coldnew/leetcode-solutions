@@ -16,12 +16,12 @@ struct TreeNode {
 };
 
 // My extra utils
-TreeNode* TreeNodeCreate(std::initializer_list<std::optional<int>>&& lst);
-
-#define TREENODE(...) TreeNodeCreate({__VA_ARGS__})
-
 bool IsTreeNodeEqual(TreeNode* p, TreeNode* q);
 
 void TreeNodePrint(TreeNode* root);
+
+TreeNode* ToTreeNode(const std::string& tree);
+
+#define TREENODE(...) ToTreeNode({__VA_ARGS__})
 
 #endif /* _LEETCODE_TREENODE_H_ */

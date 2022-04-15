@@ -34,6 +34,7 @@ ADD_EXECUTABLE(leetcode_utils_unittest
   leetcode_listnode_unittest.cpp
   leetcode_node_unittest.cpp
   leetcode_string_unittest.cpp
+  leetcode_treenode_unittest.cpp
   )
 TARGET_LINK_LIBRARIES(leetcode_utils_unittest PUBLIC ${GTEST_LIBRARIES})
 ADD_TEST(NAME leetcode_utils_unittest COMMAND leetcode_utils_unittest)
