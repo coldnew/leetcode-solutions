@@ -24,12 +24,39 @@ bool IsTreeNodeEqual(std::shared_ptr<TreeNode> p, TreeNode* q) {
   return IsTreeNodeEqual(p.get(), q);
 }
 
+static void CreateTree(TreeNode* node, int i, std::vector<std::string>& arr) {
+  if (node != nullptr) {
+    if (2 * i + 1 < arr.size()) {
+      if (arr[2 * i + 1] == "null")
+        node->left = nullptr;
+      else
+        node->left = new TreeNode(std::stoi(arr[2 * i + 1]));
+      CreateTree(node->left, 2 * i + 1, arr);
+    }
+
+    if (2 * i + 2 < arr.size()) {
+      if (arr[2 * i + 2] == "null")
+        node->right = nullptr;
+      else
+        node->right = new TreeNode(std::stoi(arr[2 * i + 2]));
+      CreateTree(node->right, 2 * i + 2, arr);
+    }
+  }
+}
+
+static TreeNode* LevelOrderCreateTree(std::vector<std::string>& arr) {
+  if (arr.size() == 0)
+    return nullptr;
+  TreeNode* head = new TreeNode(std::stoi(arr[0]));
+  CreateTree(head, 0, arr);
+  return head;
+}
+
 // ref:
 // https://github.com/cdsama/LeetCode/blob/afc59f4c4a2b3ca393d7eea22d996a3b5eb2de5d/src/LeetCode.hpp
 TreeNode* ToTreeNode(const std::string& tree) {
   if ((tree == "[]") || (tree == ""))
     return nullptr;
-
   // first split str to find match group
   // [1, 0, null]
   // ->
@@ -39,52 +66,13 @@ TreeNode* ToTreeNode(const std::string& tree) {
   auto str = StringRemoveSquareBreaket(tree);
   auto elms = StringSplit(str, ",");
 
-  std::vector<TreeNode*> vec;
+  std::vector<std::string> vec;
   for (auto& e : elms) {
     StringTrim(e);
-    if (e == "null")
-      vec.push_back(nullptr);
-    else
-      vec.push_back(new TreeNode(std::stoi(e)));
+    vec.push_back(e);
   }
-  vec.reserve(vec.size());
 
-  size_t level = 0;
-  size_t level_begin = 0;
-  size_t level_end = 0;
-  size_t size = vec.size();
-  for (size_t i = 0; i < size; ++i) {
-    auto current_node = vec[i];
-    if (current_node != nullptr) {
-      auto child_index = level_end + (i - level_begin) * 2 + 1;
-      if (child_index < size) {
-        current_node->left = vec[child_index];
-        if ((++child_index) < size)
-          current_node->right = vec[child_index];
-      }
-    } else {
-      auto child_index = level_end + (i - level_begin) * 2 + 1;
-      if (child_index < size) {
-        auto child = vec[child_index];
-        if (child != nullptr)
-          std::cerr << "initializer_list[" << child_index << "]=" << child->val
-                    << ", should be {}" << std::endl;
-
-        if ((++child_index) < size) {
-          child = vec[child_index];
-          if (child != nullptr)
-            std::cerr << "initializer_list[" << child_index
-                      << "]=" << child->val << ", should be {}" << std::endl;
-        }
-      }
-    }
-    if (i == level_end) {
-      ++level;
-      level_begin = level_end + 1;
-      level_end += (size_t)1 << level;
-    }
-  }
-  return vec[0];
+  return LevelOrderCreateTree(vec);
 }
 
 void TreeNodeDestroy(TreeNode* root) {

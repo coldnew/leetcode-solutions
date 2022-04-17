@@ -22,4 +22,8 @@ TEST(LeetCodeTreeNodeTest, ToTreeNode) {
     EXPECT_TRUE(IsTreeNodeEqual(tree, TREENODE("[5, 1, 2, 3, 4, 6]")));
     TreeNodeDestroy(tree);
   }
+  {
+    auto root = TREENODE("[5,3,6,2,4,null,8,1,null,null,null,7,9]");
+    EXPECT_TRUE(IsTreeNodeEqual(root, root));
+  }
 }
