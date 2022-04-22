@@ -1,0 +1,1 @@
+LEETCODE_UNITTEST(0706-Design-HashMap)
