@@ -24,4 +24,6 @@ std::string ToString(ListNode* l);
 
 ListNode* ToListNode(const std::string& l);
 
+void ListNodeDestroy(ListNode* head);
+
 #endif /* _LEETCODE_LISTNODE_H_ */

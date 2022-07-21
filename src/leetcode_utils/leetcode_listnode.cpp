@@ -57,3 +57,11 @@ ListNode* ToListNode(const std::string& l) {
 
   return head.next;
 }
+
+void ListNodeDestroy(ListNode* head) {
+  while (head) {
+    auto* node = head;
+    head = head->next;
+    delete node;
+  }
+}
