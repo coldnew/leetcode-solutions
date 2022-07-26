@@ -99,6 +99,10 @@ std::string ToString(Node* node) {
   return result;
 }
 
+std::string ToString(std::shared_ptr<Node> node) {
+  return ToString(node.get());
+}
+
 bool IsNodeEqual(Node* node1, Node* node2) {
   for (auto *p1 = node1, *p2 = node2; p1;) {
     if (p1 == p2)
@@ -108,4 +112,9 @@ bool IsNodeEqual(Node* node1, Node* node2) {
   }
 
   return false;
+}
+
+void NodeDestroy(Node* node) {
+  if (node)
+    delete node;
 }

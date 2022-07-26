@@ -16,10 +16,7 @@ TreeNode* FindTreeNodeByValue(TreeNode* root, int value) {
     return left;
 
   auto* right = FindTreeNodeByValue(root->right, value);
-  if (right)
-      return right;
-
-  return root;
+  return right;
 }
 
 bool IsTreeNodeEqual(TreeNode* p, TreeNode* q) {

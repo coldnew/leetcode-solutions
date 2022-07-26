@@ -60,22 +60,21 @@ TEST(LeetCodeNodeTest, ToString) {
     EXPECT_EQ("[[2,1],[1,0],[3,null]]", ToString(node));
   }
 
-  EXPECT_EQ("[[2,1],[1,0],[3,null]]",
-            ToString(ToNode("[[2,1],[1,0],[3,null]]")));
+  EXPECT_EQ("[[2,1],[1,0],[3,null]]", ToString(NODE("[[2,1],[1,0],[3,null]]")));
   EXPECT_EQ("[[7,null],[13,0],[11,4],[10,2],[1,0]]",
-            ToString(ToNode("[[7,null],[13,0],[11,4],[10,2],[1,0]]")));
+            ToString(NODE("[[7,null],[13,0],[11,4],[10,2],[1,0]]")));
 }
 
 TEST(LeetCodeNodeTest, IsNodeEqual) {
   {
-    Node* node1 = ToNode("[[1,0],[2,1]]");
-    Node* node2 = ToNode("[[1,0],[2,1]]");
+    auto node1 = NODE("[[1,0],[2,1]]");
+    auto node2 = NODE("[[1,0],[2,1]]");
 
-    EXPECT_FALSE(IsNodeEqual(node1, node2));
+    EXPECT_FALSE(IsNodeEqual(node1.get(), node2.get()));
   }
 
   {
-    Node* node = ToNode("[[1,null],[3,0]]");
-    EXPECT_TRUE(IsNodeEqual(node, node));
+    auto node = NODE("[[1,null],[3,0]]");
+    EXPECT_TRUE(IsNodeEqual(node.get(), node.get()));
   }
 }
