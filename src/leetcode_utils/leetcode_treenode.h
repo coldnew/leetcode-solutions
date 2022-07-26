@@ -28,6 +28,8 @@ void TreeNodePrint(std::shared_ptr<TreeNode> root);
 TreeNode* ToTreeNode(const std::string& tree);
 void TreeNodeDestroy(TreeNode* root);
 
+TreeNode* FindTreeNodeByValue(TreeNode* root, int value);
+
 #define TREENODE_RAWPTR(...) ToTreeNode({__VA_ARGS__})
 
 #define TREENODE(...) \

@@ -5,6 +5,20 @@
 #include <vector>
 #include "leetcode_string.h"
 
+TreeNode* FindTreeNodeByValue(TreeNode* root, int value) {
+  if (!root)
+    return nullptr;
+  if (root->val == value)
+    return root;
+
+  auto* left = FindTreeNodeByValue(root->left, value);
+  if (left)
+    return left;
+
+  auto* right = FindTreeNodeByValue(root->right, value);
+  return right;
+}
+
 bool IsTreeNodeEqual(TreeNode* p, TreeNode* q) {
   if (p == nullptr && q == nullptr)
     return true;
