@@ -264,9 +264,9 @@ static std::vector<std::string> TreeNodeRowFormatter(
         s_t long_padding = cell_width - valstr.length();
         s_t short_padding = long_padding / 2;
         long_padding -= short_padding;
-        row += std::string(c % 2 ? short_padding : long_padding, ' ');
+        row += std::string((c % 2) ? short_padding : long_padding, ' ');
         row += valstr;
-        row += std::string(c % 2 ? long_padding : short_padding, ' ');
+        row += std::string((c % 2) ? long_padding : short_padding, ' ');
       } else {
         // This position is empty, Nodeless...
         row += std::string(cell_width, ' ');
