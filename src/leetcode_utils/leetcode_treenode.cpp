@@ -114,7 +114,8 @@ struct cell_display {
   std::string valstr;
   bool present;
   cell_display() : present(false) {}
-  cell_display(std::string valstr) : valstr(valstr), present(true) {}
+  explicit cell_display(const std::string& valstr)
+      : valstr(valstr), present(true) {}
 };
 
 using display_rows = std::vector<std::vector<cell_display>>;
