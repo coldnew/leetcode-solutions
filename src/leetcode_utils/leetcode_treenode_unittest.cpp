@@ -47,3 +47,14 @@ TEST(LeetCodeTreeNodeTest, FindTreeNodeByValue) {
     TreeNodeDestroy(tree);
   }
 }
+
+TEST(LeetCodeTreeNodeTest, ToString) {
+  std::vector<std::string> trees{
+      "[1,2,5,3,4,null,6]",
+  };
+
+  for (auto& t : trees) {
+    auto tree = TREENODE(t);
+    EXPECT_EQ(t, ToString(tree));
+  }
+}

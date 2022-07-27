@@ -99,6 +99,41 @@ void TreeNodeDestroy(TreeNode* root) {
   delete root;
 }
 
+std::string ToString(TreeNode* tree) {
+  std::vector<TreeNode*> p = {tree};
+  size_t i = 0;
+  while (i < p.size()) {
+    TreeNode* node = p[i];
+    if (node != NULL) {
+      p.push_back(node->left);
+      p.push_back(node->right);
+    }
+    i += 1;
+  }
+
+  while (i > 0 && p[i - 1] == nullptr) {
+    p.pop_back();
+    i -= 1;
+  }
+
+  std::string s;
+  for (size_t i = 0; i < p.size(); i++) {
+    if (i != 0)
+      s.push_back(',');
+
+    if (p[i] == nullptr)
+      s.append("null");
+    else
+      s.append(std::to_string(p[i]->val));
+  }
+
+  return "[" + s + "]";
+}
+
+std::string ToString(std::shared_ptr<TreeNode> tree) {
+  return ToString(tree.get());
+}
+
 // ref:
 // https://stackoverflow.com/questions/36802354/print-binary-tree-in-a-pretty-way-using-c
 
