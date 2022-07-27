@@ -22,7 +22,7 @@ bool IsTreeNodeEqual(TreeNode* p, std::shared_ptr<TreeNode> q);
 bool IsTreeNodeEqual(std::shared_ptr<TreeNode> p, std::shared_ptr<TreeNode> q);
 bool IsTreeNodeEqual(std::shared_ptr<TreeNode> p, TreeNode* q);
 
-std::string ToString(TreeNode *tree);
+std::string ToString(TreeNode* tree);
 std::string ToString(std::shared_ptr<TreeNode> tree);
 
 void TreeNodePrint(TreeNode* root);

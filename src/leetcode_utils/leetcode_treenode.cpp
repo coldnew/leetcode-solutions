@@ -100,6 +100,8 @@ void TreeNodeDestroy(TreeNode* root) {
 }
 
 std::string ToString(TreeNode* tree) {
+  if (!tree)
+    return "[]";
   std::vector<TreeNode*> p = {tree};
   size_t i = 0;
   while (i < p.size()) {
