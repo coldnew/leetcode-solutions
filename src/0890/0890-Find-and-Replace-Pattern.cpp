@@ -18,11 +18,12 @@ class Solution1 {
   std::string buildPattern(const std::string& str) {
     std::string s = str;
     std::unordered_map<char, int> m;
-    for (auto& c : s)
-      if (m.count(c) == 0)
-        m[c] = m.size();
-    for (auto i = 0; i < s.size(); i++)
-      s[i] = m[s[i]];
+    for (auto i = 0; i < s.size(); i++) {
+        char c = s[i];
+        if (m.count(c) == 0)
+            m[c] = m.size();
+        s[i] = m[s[i]];
+    }
     return s;
   }
 };
