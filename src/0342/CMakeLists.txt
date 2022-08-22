@@ -1,0 +1,1 @@
+LEETCODE_UNITTEST(0342-Power-of-Four)
