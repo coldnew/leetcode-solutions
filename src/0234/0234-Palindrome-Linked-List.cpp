@@ -13,8 +13,23 @@
 class Solution1 {
  public:
   bool isPalindrome(ListNode* head) {
-    ListNode* slow = head;
+    ListNode* middle = findMiddle(head);
+
+    middle = reverse(middle);
+
+    while (middle) {
+      if (middle->val != head->val)
+        return false;
+      middle = middle->next;
+      head = head->next;
+    }
+    return true;
+  }
+
+ private:
+  ListNode* findMiddle(ListNode* head) {
     ListNode* fast = head;
+    ListNode* slow = head;
 
     while (fast && fast->next) {
       fast = fast->next->next;
@@ -23,18 +38,10 @@ class Solution1 {
 
     if (fast)
       slow = slow->next;
-    slow = reverse(slow);
 
-    while (slow) {
-      if (slow->val != head->val)
-        return false;
-      slow = slow->next;
-      head = head->next;
-    }
-    return true;
+    return slow;
   }
 
- private:
   ListNode* reverse(ListNode* head) {
     ListNode* prev = nullptr;
     ListNode* next = nullptr;
