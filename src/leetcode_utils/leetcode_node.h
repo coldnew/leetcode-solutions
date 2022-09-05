@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <memory>
+#include <vector>
 
 class Node {
  public:
@@ -14,6 +15,12 @@ class Node {
     val = _val;
     next = NULL;
     random = NULL;
+  }
+
+  std::vector<Node*> children;
+  Node(int _val, std::vector<Node*> _children) {
+    val = _val;
+    children = _children;
   }
 };
 
