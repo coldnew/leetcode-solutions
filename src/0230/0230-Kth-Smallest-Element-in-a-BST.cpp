@@ -19,7 +19,7 @@ class Solution1 {
     kthSmallest(root, k, tree);
     return tree[k - 1];
   }
-    void kthSmallest(TreeNode* root, int k, std::vector<int>& tree) {
+  void kthSmallest(TreeNode* root, int k, std::vector<int>& tree) {
     if (root->left)
       kthSmallest(root->left, k, tree);
     tree.push_back(root->val);

@@ -2,7 +2,7 @@
 #include <gtest/gtest.h>
 
 #define LEETCODE_TEST(SolutionX)                                               \
-  TEST(ConvertBSTToGreaterTreeTest, SoltionX) {                                \
+  TEST(ConvertBSTToGreaterTreeTest, SolutionX) {                               \
     SolutionX s;                                                               \
     auto root = TREENODE("[4,1,6,0,2,5,7,null,null,null,3,null,null,null,8]"); \
     auto result =                                                              \

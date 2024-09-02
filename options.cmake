@@ -2,25 +2,18 @@
 # Packages
 #-------------------------------------------------------------------------------
 
-# gtest
-PKG_CHECK_MODULES(GTEST REQUIRED gtest gtest_main)
-SET_PACKAGE_PROPERTIES(gtest PROPERTIES
-  DESCRIPTION "Google C++ Testing Framework"
-  URL "https://github.com/google/googletest"
-  TYPE REQUIRED)
-IF(GTEST_FOUND)
-  SET_PROPERTY(GLOBAL APPEND PROPERTY PACKAGES_FOUND gtest)
-ENDIF()
+INCLUDE(FetchContent)
 
-# gmock
-PKG_CHECK_MODULES(GMOCK REQUIRED gmock gmock_main)
-SET_PACKAGE_PROPERTIES(gmock PROPERTIES
-  DESCRIPTION "Google C++ Testing Framework"
-  URL "https://github.com/google/googletest"
-  TYPE REQUIRED)
-IF(GMOCK_FOUND)
-  SET_PROPERTY(GLOBAL APPEND PROPERTY PACKAGES_FOUND gmock)
-ENDIF()
+# gtest
+FetchContent_Declare(
+  googletest
+  GIT_REPOSITORY https://github.com/google/googletest.git
+  GIT_TAG 0953a17a4281fc26831da647ad3fcd5e21e6473b
+  )
+
+# For Windows: Prevent overriding the parent project's compiler/linker settings
+SET(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+FetchContent_MakeAvailable(googletest)
 
 # benchmark (optional)
 PKG_CHECK_MODULES(BENCHMARK benchmark)
@@ -36,7 +29,5 @@ ENDIF()
 # Basic deps we need in this project
 #-------------------------------------------------------------------------------
 
-INCLUDE_DIRECTORIES (${GTEST_INCLUDE_DIRS})
-INCLUDE_DIRECTORIES (${GMOCK_INCLUDE_DIRS})
 INCLUDE_DIRECTORIES (${BENCHMARK_INCLUDE_DIRS})
 

@@ -36,7 +36,7 @@ class MyHashSet2 {
   }
 
   bool contains(int key) {
-    for (auto &l : list_) {
+    for (auto& l : list_) {
       if (l == key)
         return true;
     }
